@@ -1,0 +1,7 @@
+WHEN_TYPE        = 'when'
+WHAT_TYPE        = 'what'
+WHO_TYPE         = 'who'
+AFFIRMATIVE_TYPE = 'yesno'
+UNKNOWN_TYPE     = 'unknown'
+
+ALL_TYPES = [WHEN_TYPE, WHAT_TYPE, WHO_TYPE, AFFIRMATIVE_TYPE, UNKNOWN_TYPE]

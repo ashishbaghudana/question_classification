@@ -1,0 +1,4 @@
+# Mac OS specific files
+*.DS_Store
+*.pyc
+*.bin
