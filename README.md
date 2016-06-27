@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ```bash
 $ python classify.py
 Enter question:
-What is the Brienne's sword called?
+What is the Brienne\'s sword called?
 what
 Enter question:
 Who is the mother of dragons, Queen of the Andals, the Rhoynar and the First Men?
@@ -47,7 +47,7 @@ Enter question:
 What time does the train arrive from Bangalore?
 when
 Enter question:
-Why was Jon Snow contemptuously murdered by the Night's Watch?
+Why was Jon Snow contemptuously murdered by the Night\'s Watch?
 unknown
 Enter question:
 When will the clock strive twelve?
