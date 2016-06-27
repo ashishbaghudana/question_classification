@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ```bash
 $ python classify.py
 Enter question:
-What is the Brienne\'s sword called?
+What is Brienne\'s sword called?
 what
 Enter question:
 Who is the mother of dragons, Queen of the Andals, the Rhoynar and the First Men?
