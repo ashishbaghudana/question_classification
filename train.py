@@ -8,6 +8,8 @@ import logging
 import numpy as np
 import tabulate
 
+import argparse
+
 class Training:
     def __init__(self, data_path, classifier, reader=None, tokenizer=None):
         self.data_path = data_path
@@ -43,13 +45,10 @@ class Training:
     def __setstate__(self, state):
         self.__dict__.update(state)
 
-    def save(self, output_file):
-        import pickle
-        self.logger.info('Saving model to file {}'.format(output_file))
-        with open(output_file, 'wb') as file_writer:
-            pickle.dump(self, file_writer)
+    def save(self, model, output_dir):
+        model.save(output_dir)
 
-def train(data_path, glove_path, dimensions, output_file):
+def train(data_path, glove_path, dimensions, output_dir):
     DNN      = DeepLearningModel(glove_path, dimensions)
     trainer  = Training(data_path, DNN)
 
@@ -60,16 +59,21 @@ def train(data_path, glove_path, dimensions, output_file):
 
     table = headers + row
     print
-    print tabulate.tabulate(table, headers='firstrow', floatfmt='.3f')
+    print tabulate.tabulate(table, headers='firstrow', floatfmt='.3f', tablefmt='pipe')
 
-    trainer.save(output_file)
+    trainer.save(model, output_dir)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Train data')
+    parser.add_argument('-d', '--dataset', default='resources/dataset/data.txt',
+            help='Path to dataset')
+    parser.add_argument('-g', '--glove', default='resources/glove/glove.6B.50d.txt',
+            help='Path to Glove vectors')
+    parser.add_argument('-n', '--dimensions', type=int, default=50,
+            help='Dimensions')
+    parser.add_argument('-o', '--output', default='resources/model',
+            help='Path to output directory')
+
+    args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)
-
-    data_path  = 'resources/dataset/data.txt'
-    glove_path = '/Users/bssubbu/Documents/Projects/data/glove.6B.50d.txt'
-    output_file = 'resources/model.bin'
-    dimensions = 50
-
-    train(data_path, glove_path, dimensions, output_file)
+    train(args.dataset, args.glove, args.dimensions, args.output)

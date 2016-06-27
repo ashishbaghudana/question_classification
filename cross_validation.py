@@ -64,13 +64,13 @@ def cross_validation(data_path, glove_path, dimensions, folds=5):
 
     table = headers + matrix.transpose().tolist()
 
-    print tabulate.tabulate(table, headers='firstrow', floatfmt='.3f')
+    print tabulate.tabulate(table, headers='firstrow', floatfmt='.3f', tablefmt='pipe')
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
     data_path  = 'resources/dataset/data.txt'
-    glove_path = '/Users/bssubbu/Documents/Projects/data/glove.6B.50d.txt'
+    glove_path = 'resources/glove/glove.6B.50d.txt'
     dimensions = 50
 
     cross_validation(data_path, glove_path, dimensions)

@@ -2,3 +2,5 @@
 *.DS_Store
 *.pyc
 *.bin
+
+resources/glove

@@ -1,0 +1,1 @@
+{"continue_training": false, "hidden_units": [10, 20, 10], "verbose": 1, "class_name": "TensorFlowDNNClassifier", "learning_rate": 0.1, "batch_size": 32, "steps": 5000, "n_classes": 5, "optimizer": "Adagrad", "clip_gradients": 5.0}

@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/ashish/Projects/question_classification/resources/model/model-5000"
+all_model_checkpoint_paths: "/home/ashish/Projects/question_classification/resources/model/model-5000"

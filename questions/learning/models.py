@@ -3,6 +3,8 @@ from sklearn import metrics
 from sklearn.preprocessing import LabelEncoder
 from questions.utils import constants
 import logging
+import gensim
+import numpy as np
 
 class Model(object):
     """
@@ -98,11 +100,13 @@ class DeepLearningModel(Model):
         self.glove_data = glove_data
         self.dimensions = dimensions
         self.encoder    = LabelEncoder()
+        self.encoder.fit(constants.ALL_TYPES)
         self.logger     = logging.getLogger('models.DeepLearningModel')
+        self.dictionary = gensim.models.Word2Vec.load_word2vec_format(
+                            self.glove_data, binary=False)
 
     def train(self, train, *args, **kwargs):
         import numpy as np
-        import gensim
         from tensorflow.contrib import learn as skflow
 
         if 'hidden_units' not in kwargs:
@@ -117,13 +121,11 @@ class DeepLearningModel(Model):
 
         train_labels = train.target()
         self.logger.info('Loading dictionary from {}'.format(self.glove_data))
-        self.dictionary = gensim.models.Word2Vec.load_word2vec_format(
-                            self.glove_data, binary=False)
 
         self.logger.info('Creating vectors for each question')
         x_train = np.asarray([self.create_vector(question) for question \
                     in train])
-        y_train = self.encoder.fit_transform(train_labels)
+        y_train = self.encoder.transform(train_labels)
         self.logger.info('Encoded classes = {}'.format(self.encoder.classes_))
 
         classifier = skflow.TensorFlowDNNClassifier(**kwargs)
@@ -137,7 +139,7 @@ class DeepLearningModel(Model):
 
         x_test = np.asarray([self.create_vector(question) for question \
                     in test])
-        self.logger.info('Predicting from model')
+        self.logger.debug('Predicting from model')
         y_pred = self.encoder.inverse_transform(model.predict(x_test))
         return y_pred
 

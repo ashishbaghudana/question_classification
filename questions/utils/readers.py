@@ -29,6 +29,20 @@ class AnnotationReader(object):
         return dataset
 
 
+class CommandLineInterfaceReader(object):
+    def __init__(self, tokenizer):
+        self.tokenizer = tokenizer
+
+    def parse(self, text):
+        dataset = Dataset()
+        tokens = [Token(token_text, token_id) for token_id, token_text
+                    in enumerate(self.tokenizer.tokenize(text.strip()))]
+        question = Question(text.strip(), tokens=tokens)
+        dataset.add(question)
+        return dataset
+
+
+
 class InputReader(object):
     """
     The dataset is of the form?

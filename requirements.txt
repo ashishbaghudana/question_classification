@@ -1,2 +1,12 @@
 pytest==2.9.1
 pytest-cov==2.2.1
+six>=1.1.0
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl
+pattern==2.6
+scikit-learn==0.17.1
+numpy==1.11.1
+scipy==0.17.1
+tabulate==0.7.5
+gensim==0.13.1
+nltk==3.2.1
+termcolor==1.1.0
