@@ -28,6 +28,38 @@ Download the pre-trained Glove data from https://1drv.ms/t/s!ApBGR249NCLchGq8Vvy
 pip install -r requirements.txt
 ```
 
+### SAMPLE
+```bash
+$ python classify.py
+Enter question:
+What is the Brienne's sword called?
+what
+Enter question:
+Who is the mother of dragons, Queen of the Andals, the Rhoynar and the First Men?
+who
+Enter question:
+Will Donald Trump be president of the US?
+yesno
+Enter question:
+Which company is Tim Cook the CEO of?
+who
+Enter question:
+What time does the train arrive from Bangalore?
+when
+Enter question:
+Why was Jon Snow contemptuously murdered by the Night's Watch?
+unknown
+Enter question:
+When will the clock strive twelve?
+when
+Enter question:
+Why did the chicken cross the road?
+unknown
+Enter question:
+Can the chicken cross the road?
+yesno
+```
+
 ### TRAIN
 ```bash
 $ python train.py -h
