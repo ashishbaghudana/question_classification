@@ -1,7 +1,7 @@
 # Question Classification
 ## What, When, Who, Affirmative and Unknown
 
-This module classifies different wh-questions, currently handling What, When, Who and Affirmative (Yes-No) questions. All other questions are classified as unknown. The module creates a Deep Neural Network with 3 hidden layers consisting of 10, 20 and 10 components each. Each question is converted to a 50-dimensional vector using the [Stanford Glove pre-trained vectors](http://nlp.stanford.edu/projects/glove/). These vectors are fed through the DNN and trained over 5000 steps, with a training rates at:
+This module classifies different wh-questions, currently handling What, When, Who and Affirmative (Yes-No) questions. All other questions are classified as unknown. The module creates a Deep Neural Network with 3 hidden layers consisting of 10, 20 and 10 components each. Each question is converted to a 50-dimensional vector using the [Stanford Glove pre-trained vectors](http://nlp.stanford.edu/projects/glove/). These vectors are fed through the DNN and trained over 5000 steps, with training rates at:
 
 | Precision | Recall | F-Measure |
 |----------:|-------:|----------:|
@@ -50,7 +50,7 @@ Enter question:
 Why was Jon Snow contemptuously murdered by the Night\'s Watch?
 unknown
 Enter question:
-When will the clock strive twelve?
+When will the clock strike twelve?
 when
 Enter question:
 Why did the chicken cross the road?
